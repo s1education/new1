@@ -1,0 +1,1792 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>後寮國小 六年甲班</title>
+  <meta name="description" content="澎湖縣後寮國小六年甲班班級網站，提供班級公告、活動剪影、每週課表、親師交流QR Code與校園生活分享。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #10847e;
+      --primary-dark: #095c58;
+      --primary-light: #e6f6f5;
+      --secondary: #f6ad55;
+      --accent: #ff6b6b;
+      --sunny-yellow: #feca57;
+      --sky-blue: #48dbfb;
+      --lavender: #a29bfe;
+      --bg-main: #f8fafc;
+      --bg-card: #ffffff;
+      --text-main: #2d3748;
+      --text-muted: #718096;
+      --text-light: #a0aec0;
+      --border-color: #e2e8f0;
+      --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
+      --shadow-md: 0 6px 16px rgba(16, 132, 126, 0.08);
+      --shadow-lg: 0 12px 28px rgba(0,0,0,0.1);
+      --shadow-hover: 0 16px 36px rgba(16, 132, 126, 0.16);
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Microsoft JhengHei", sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.65;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(#10847e12 1px, transparent 1px),
+        radial-gradient(#f6ad5515 1px, transparent 1px);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 20px;
+    }
+
+    /* 頂部裝飾光斑 */
+    .bg-blobs {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 700px;
+      overflow: hidden;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .blob {
+      position: absolute;
+      filter: blur(80px);
+      opacity: 0.55;
+      border-radius: 50%;
+    }
+    .blob-1 {
+      width: 450px;
+      height: 450px;
+      background: linear-gradient(135deg, #a8ff78, #78ffd6);
+      top: -100px;
+      right: -80px;
+    }
+    .blob-2 {
+      width: 420px;
+      height: 420px;
+      background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+      top: 150px;
+      left: -120px;
+    }
+
+    /* 容器 */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* 導覽列 */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+      transition: var(--transition);
+    }
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--primary), #38b2ac);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      box-shadow: 0 4px 12px rgba(16, 132, 126, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .brand:hover .brand-icon {
+      transform: rotate(6deg) scale(1.05);
+    }
+    .brand-text h1 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+    }
+    .brand-text span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 8px;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-links a:hover {
+      background-color: var(--primary-light);
+      color: var(--primary);
+    }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--primary), #14b8a6) !important;
+      color: white !important;
+      font-weight: 600 !important;
+      box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
+    }
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(20, 184, 166, 0.4);
+    }
+
+    /* 手機選單漢堡鈕 */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    /* 英雄區 Hero */
+    .hero {
+      padding: 50px 0 60px;
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(254, 202, 87, 0.25);
+      border: 1px solid rgba(254, 202, 87, 0.8);
+      color: #b7791f;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .hero-badge .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #e53e3e;
+      border-radius: 50%;
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(229, 62, 62, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(229, 62, 62, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(229, 62, 62, 0); }
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #1a202c;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+    .hero-title .highlight {
+      background: linear-gradient(120deg, var(--primary) 0%, #0d9488 50%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+    .hero-desc {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #0d9488);
+      color: white;
+      box-shadow: 0 8px 20px rgba(16, 132, 126, 0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(16, 132, 126, 0.4);
+    }
+    .btn-secondary {
+      background: white;
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+    .btn-secondary:hover {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* 班級關鍵指標 */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-color);
+    }
+    .stat-item {
+      text-align: left;
+    }
+    .stat-number {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      font-family: 'Fredoka', 'Noto Sans TC', sans-serif;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* QR Code 主打卡片 (重點要求) */
+    .hero-qr-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      text-align: center;
+      position: relative;
+      transition: var(--transition);
+      overflow: hidden;
+    }
+    .hero-qr-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    }
+    .hero-qr-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+    .qr-badge-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #e6fffa;
+      color: #047857;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .qr-image-wrapper {
+      position: relative;
+      width: 210px;
+      height: 210px;
+      margin: 0 auto 18px;
+      padding: 12px;
+      background: linear-gradient(145deg, #f0fdfa, #ffffff);
+      border-radius: var(--radius-md);
+      border: 2px dashed #99f6e4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.03);
+      cursor: pointer;
+    }
+    .qr-image-wrapper img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+    .qr-image-wrapper:hover img {
+      transform: scale(1.04);
+    }
+    .qr-scan-line {
+      position: absolute;
+      top: 10px;
+      left: 12px;
+      right: 12px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #0d9488, transparent);
+      box-shadow: 0 0 8px #0d9488;
+      border-radius: 50%;
+      animation: scanAnim 2.6s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes scanAnim {
+      0%, 100% { top: 12px; opacity: 0.2; }
+      50% { top: 190px; opacity: 1; }
+    }
+    .hero-qr-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 6px;
+    }
+    .hero-qr-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+    .qr-actions {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .btn-sm {
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .btn-light-teal {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border: 1px solid #b2f5ea;
+    }
+    .btn-light-teal:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* 區塊標題 */
+    .section-header {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+    .section-tag {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 12px;
+    }
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* 區塊共通 padding */
+    .section-py {
+      padding: 70px 0;
+    }
+
+    /* 公告與通知區 */
+    .announcements-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+    }
+    .news-card {
+      background: white;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .news-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      border: 1px solid transparent;
+      text-decoration: none;
+      color: inherit;
+    }
+    .news-item:hover {
+      background: #f8fafc;
+      border-color: #e2e8f0;
+      transform: translateX(4px);
+    }
+    .news-date {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 62px;
+      height: 62px;
+      background: var(--primary-light);
+      border-radius: 12px;
+      color: var(--primary-dark);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .news-date .day {
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+    .news-date .month {
+      font-size: 0.72rem;
+      letter-spacing: 0.5px;
+    }
+    .news-content {
+      flex: 1;
+    }
+    .news-tags {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+    .badge-urgent {
+      background: #fed7d7;
+      color: #9b2c2c;
+    }
+    .badge-activity {
+      background: #feebc8;
+      color: #9c4221;
+    }
+    .badge-homework {
+      background: #e2e8f0;
+      color: #4a5568;
+    }
+    .badge-pinned {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+    .news-content h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 4px;
+    }
+    .news-content p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* 側欄小卡片 */
+    .sidebar-card {
+      background: white;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      margin-bottom: 24px;
+    }
+    .sidebar-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .teacher-profile {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .teacher-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fbcfe8, #f472b6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: 0 4px 10px rgba(244, 114, 182, 0.3);
+    }
+    .teacher-info h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .teacher-info p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .teacher-quote {
+      font-size: 0.88rem;
+      color: #4a5568;
+      background: #fffbeb;
+      border-left: 3px solid #f59e0b;
+      padding: 12px;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* 倒數計時卡 */
+    .countdown-box {
+      background: linear-gradient(135deg, #0f766e, #115e59);
+      color: white;
+      border-radius: var(--radius-md);
+      padding: 22px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(15, 118, 110, 0.25);
+    }
+    .countdown-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+      opacity: 0.9;
+    }
+    .countdown-days {
+      font-size: 2.8rem;
+      font-weight: 900;
+      line-height: 1;
+      font-family: 'Fredoka', sans-serif;
+      color: #fef08a;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .countdown-label {
+      font-size: 0.85rem;
+      margin-top: 6px;
+      opacity: 0.85;
+    }
+
+    /* 課表區塊 */
+    .schedule-wrapper {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+      overflow-x: auto;
+    }
+    .schedule-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 8px;
+      min-width: 650px;
+    }
+    .schedule-table th {
+      background: #f1f5f9;
+      color: var(--text-main);
+      padding: 14px 12px;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+    .schedule-table th.highlight-th {
+      background: var(--primary);
+      color: white;
+    }
+    .schedule-table td {
+      text-align: center;
+      padding: 14px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: var(--transition);
+      background: #f8fafc;
+      border: 1px solid #edf2f7;
+    }
+    .schedule-table td:hover {
+      transform: scale(1.03);
+      box-shadow: var(--shadow-sm);
+    }
+    .schedule-table td.time-col {
+      background: #f8fafc;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: none;
+    }
+    .sub-chi { background: #fee2e2 !important; color: #991b1b !important; }
+    .sub-math { background: #e0f2fe !important; color: #075985 !important; }
+    .sub-eng { background: #fef3c7 !important; color: #92400e !important; }
+    .sub-sci { background: #dcfce7 !important; color: #166534 !important; }
+    .sub-soc { background: #f3e8ff !important; color: #6b21a8 !important; }
+    .sub-pe { background: #ffedd5 !important; color: #9a3412 !important; }
+    .sub-art { background: #fce7f3 !important; color: #9d174d !important; }
+    .sub-it { background: #ccfbf1 !important; color: #115e59 !important; }
+    .sub-break { background: #f1f5f9 !important; color: #64748b !important; font-size: 0.85rem; }
+
+    /* 班級專屬 QR Code 專區 (強調家長導引與掃描說明) */
+    .qr-spotlight-section {
+      background: linear-gradient(135deg, #094a46 0%, #10847e 50%, #14b8a6 100%);
+      color: white;
+      border-radius: var(--radius-lg);
+      padding: 50px 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(16, 132, 126, 0.35);
+      margin-top: 20px;
+    }
+    .qr-spotlight-section::after {
+      content: "";
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      pointer-events: none;
+    }
+    .qr-spotlight-grid {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 40px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .qr-spotlight-text h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      color: #fef08a;
+    }
+    .qr-spotlight-text p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      opacity: 0.95;
+      margin-bottom: 24px;
+      max-width: 580px;
+    }
+    .qr-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .step-box {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      padding: 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .step-num {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #fef08a;
+      margin-bottom: 4px;
+    }
+    .step-desc {
+      font-size: 0.85rem;
+      line-height: 1.4;
+      opacity: 0.9;
+    }
+
+    .qr-spotlight-box {
+      background: white;
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      text-align: center;
+      color: var(--text-main);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+    .qr-spotlight-box img {
+      width: 100%;
+      max-width: 220px;
+      height: auto;
+      border-radius: 12px;
+      display: block;
+      margin: 0 auto 12px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    }
+    .qr-spotlight-box .caption {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    /* 班級活動精彩相簿 */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 24px;
+    }
+    .gallery-card {
+      background: white;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .gallery-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+    .gallery-thumb {
+      height: 180px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.8rem;
+      overflow: hidden;
+    }
+    .thumb-grad-1 { background: linear-gradient(135deg, #3b82f6, #06b6d4); }
+    .thumb-grad-2 { background: linear-gradient(135deg, #10b981, #84cc16); }
+    .thumb-grad-3 { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+    .thumb-grad-4 { background: linear-gradient(135deg, #8b5cf6, #ec4899); }
+    
+    .gallery-tag-pill {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(4px);
+      color: white;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+    }
+    .gallery-body {
+      padding: 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .gallery-body h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 6px;
+    }
+    .gallery-body p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    .gallery-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--text-light);
+      border-top: 1px solid #f1f5f9;
+      padding-top: 10px;
+    }
+
+    /* 班級幹部與榮譽榜 */
+    .double-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+    .officers-card, .honors-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+    }
+    .card-heading {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .officer-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .officer-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background: #f8fafc;
+      border-radius: var(--radius-sm);
+      border: 1px solid #edf2f7;
+    }
+    .officer-role {
+      font-size: 0.78rem;
+      color: var(--primary);
+      font-weight: 700;
+      display: block;
+    }
+    .officer-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .honor-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .honor-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: #fffbeb;
+      border-radius: var(--radius-sm);
+      border: 1px solid #fef3c7;
+    }
+    .honor-badge {
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+    .honor-text h5 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #92400e;
+    }
+    .honor-text p {
+      font-size: 0.8rem;
+      color: #b45309;
+    }
+
+    /* 頁尾 */
+    footer.site-footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 50px 0 24px;
+      margin-top: 70px;
+      border-top: 1px solid #1e293b;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand h3 {
+      color: white;
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-brand p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      max-width: 420px;
+    }
+    .footer-col h4 {
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+    .footer-links a:hover {
+      color: #38bdf8;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid #1e293b;
+      font-size: 0.82rem;
+      color: #64748b;
+    }
+
+    /* 回到頂端按鈕 */
+    .back-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: 0 6px 16px rgba(16, 132, 126, 0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+      z-index: 99;
+    }
+    .back-to-top.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .back-to-top:hover {
+      transform: translateY(-4px);
+      background: var(--primary-dark);
+    }
+
+    /* QR Code 放大視窗 (Modal) */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      padding: 20px;
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-content {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      max-width: 380px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+      transform: scale(0.9);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
+    }
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: #f1f5f9;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+    }
+    .modal-close:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .modal-qr-img {
+      width: 100%;
+      max-width: 260px;
+      height: auto;
+      margin: 14px auto 16px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+    }
+
+    /* RWD 響應式調整 */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-qr-card {
+        max-width: 460px;
+        margin: 0 auto;
+      }
+      .announcements-grid {
+        grid-template-columns: 1fr;
+      }
+      .qr-spotlight-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .qr-spotlight-text p {
+        margin: 0 auto 24px;
+      }
+      .qr-steps {
+        grid-template-columns: 1fr;
+      }
+      .double-column {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .nav-links.mobile-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        border-bottom: 1px solid var(--border-color);
+      }
+      .nav-links.mobile-open a {
+        width: 100%;
+        padding: 12px 16px;
+      }
+      .officer-list {
+        grid-template-columns: 1fr;
+      }
+      .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 背景柔和漸層光斑 -->
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <!-- 頂部導覽列 -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="#" class="brand">
+        <div class="brand-icon">🏫</div>
+        <div class="brand-text">
+          <h1>後寮國小 六年甲班</h1>
+          <span>Houliao Elementary School • Grade 6 Class A</span>
+        </div>
+      </a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="切換選單">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">首頁</a></li>
+        <li><a href="#announcements">班級公告</a></li>
+        <li><a href="#schedule">本週課表</a></li>
+        <li><a href="#activities">活動相簿</a></li>
+        <li><a href="#class-info">導師與幹部</a></li>
+        <li><a href="#qr-section" class="nav-cta">📱 班級 QR Code</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 英雄主視覺區 -->
+  <main id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span>活力六甲 • 攜手同行 • 勇敢逐夢</span>
+        </div>
+        <h2 class="hero-title">
+          歡迎來到<br>
+          <span class="highlight">後寮國小 六年甲班</span><br>
+          班級快樂天地！
+        </h2>
+        <p class="hero-desc">
+          這裡是六年甲班專屬的數位交流天地。記錄孩子們認真學習的足跡、同儕間純真溫暖的友誼，並提供最新聯絡事項與課程資訊，邀請家長與同學們一同見證成長的每一刻！
+        </p>
+        <div class="hero-buttons">
+          <a href="#announcements" class="btn btn-primary">
+            <span>📢 查看今日公告</span>
+          </a>
+          <a href="#qr-section" class="btn btn-secondary">
+            <span>🔍 掃描班級條碼</span>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">26</div>
+            <div class="stat-label">活潑熱情小夥伴</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">團結互助愛心率</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">365+</div>
+            <div class="stat-label">美好回憶進行中</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 首頁重點要求：qrcode.png 精緻展示卡片 -->
+      <div class="hero-qr-card">
+        <div class="qr-badge-top">
+          ✨ 官方專屬行動條碼
+        </div>
+        <div class="qr-image-wrapper" id="qrWrapper" title="點擊放大檢視 QR Code">
+          <div class="qr-scan-line"></div>
+          <img src="qrcode.png" alt="後寮國小 六年甲班 專屬 QR Code" id="heroQrImg">
+        </div>
+        <h3>掃一掃，加入六甲班群</h3>
+        <p>手機相機直接對準即可掃描，隨時掌握電子聯絡簿與班級第一手動態！</p>
+        <div class="qr-actions">
+          <button class="btn-sm btn-light-teal" id="openQrModalBtn">
+            🔍 放大條碼
+          </button>
+          <a href="qrcode.png" download="後寮國小六年甲班-QRcode.png" class="btn-sm btn-light-teal">
+            📥 下載保存
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 班級最新公告區 -->
+  <section id="announcements" class="section-py">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">News & Notices</span>
+        <h2 class="section-title">班級最新公告</h2>
+        <p class="section-subtitle">即時掌握學校重要活動行程、家庭作業提醒與親師交流訊息</p>
+      </div>
+
+      <div class="announcements-grid">
+        <!-- 公告列表 -->
+        <div class="news-card">
+          <a href="javascript:void(0)" class="news-item">
+            <div class="news-date">
+              <span class="day">15</span>
+              <span class="month">11月</span>
+            </div>
+            <div class="news-content">
+              <div class="news-tags">
+                <span class="badge badge-urgent">重要提醒</span>
+                <span class="badge badge-pinned">置頂公告</span>
+              </div>
+              <h4>【親師會通知】本學期六年級親師座談會注意事項</h4>
+              <p>誠摯邀請各位家長蒞臨本班教室交流，一同討論畢業系列活動與學習升學輔導事宜。</p>
+            </div>
+          </a>
+
+          <a href="javascript:void(0)" class="news-item">
+            <div class="news-date">
+              <span class="day">18</span>
+              <span class="month">11月</span>
+            </div>
+            <div class="news-content">
+              <div class="news-tags">
+                <span class="badge badge-activity">校外教學</span>
+              </div>
+              <h4>【戶外學習】海洋生態探訪與環境保育踏查活動</h4>
+              <p>請攜帶水壺、防曬帽子、觀察筆記本，當天早上 08:00 準時於操場集合出發。</p>
+            </div>
+          </a>
+
+          <a href="javascript:void(0)" class="news-item">
+            <div class="news-date">
+              <span class="day">22</span>
+              <span class="month">11月</span>
+            </div>
+            <div class="news-content">
+              <div class="news-tags">
+                <span class="badge badge-homework">課業評量</span>
+              </div>
+              <h4>【自主學習】期中數學專題與自然科學探究發表會</h4>
+              <p>各組請於下週三前將簡報及海報成果上傳至班級雲端硬碟，準備進行班級成果分享。</p>
+            </div>
+          </a>
+
+          <a href="javascript:void(0)" class="news-item">
+            <div class="news-date">
+              <span class="day">28</span>
+              <span class="month">11月</span>
+            </div>
+            <div class="news-content">
+              <div class="news-tags">
+                <span class="badge badge-activity">閱讀推廣</span>
+              </div>
+              <h4>【好書共享】本月班級讀書會推薦書單公告</h4>
+              <p>鼓勵孩子們利用早讀時間徜徉書海，完成閱讀心得者可至導師處蓋榮譽積點章！</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- 側邊欄卡片 -->
+        <div class="sidebar-wrapper">
+          <div class="sidebar-card">
+            <h3>👩‍🏫 導師叮嚀</h3>
+            <div class="teacher-profile">
+              <div class="teacher-avatar">🌻</div>
+              <div class="teacher-info">
+                <h4>六年甲班 導師</h4>
+                <p>用心傾聽，陪伴孩子快樂啟航</p>
+              </div>
+            </div>
+            <div class="teacher-quote">
+              「六年級是小學生活最燦爛的句點，也是展翅飛翔的起點。願你們秉持善良、好奇心與勇氣，在每一個日子裡收穫最好的自己！」
+            </div>
+          </div>
+
+          <!-- 畢業倒數計時 -->
+          <div class="countdown-box">
+            <div class="countdown-title">🎓 六甲畢業倒數計時</div>
+            <div class="countdown-days" id="countdownDays">218</div>
+            <div class="countdown-label">珍惜每一天相聚的同窗歡樂！</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 課表與作息區 -->
+  <section id="schedule" class="section-py" style="background-color: #f1f5f9;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Timetable</span>
+        <h2 class="section-title">本週班級課表</h2>
+        <p class="section-subtitle">充實精彩的學習時光，多元豐富的均衡發展</p>
+      </div>
+
+      <div class="schedule-wrapper">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th style="width: 14%;">節次 / 時間</th>
+              <th class="highlight-th" style="width: 17.2%;">星期一</th>
+              <th class="highlight-th" style="width: 17.2%;">星期二</th>
+              <th class="highlight-th" style="width: 17.2%;">星期三</th>
+              <th class="highlight-th" style="width: 17.2%;">星期四</th>
+              <th class="highlight-th" style="width: 17.2%;">星期五</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="time-col">早自習<br>07:50 - 08:30</td>
+              <td class="sub-break">晨間閱讀</td>
+              <td class="sub-break">升旗朝會</td>
+              <td class="sub-break">班級導讀</td>
+              <td class="sub-break">體能活動</td>
+              <td class="sub-break">環境整潔</td>
+            </tr>
+            <tr>
+              <td class="time-col">第一節<br>08:40 - 09:20</td>
+              <td class="sub-chi">國語</td>
+              <td class="sub-math">數學</td>
+              <td class="sub-chi">國語</td>
+              <td class="sub-eng">英語</td>
+              <td class="sub-math">數學</td>
+            </tr>
+            <tr>
+              <td class="time-col">第二節<br>09:30 - 10:10</td>
+              <td class="sub-math">數學</td>
+              <td class="sub-chi">國語</td>
+              <td class="sub-sci">自然與生活</td>
+              <td class="sub-chi">國語</td>
+              <td class="sub-chi">國語</td>
+            </tr>
+            <tr>
+              <td class="time-col">第三節<br>10:30 - 11:10</td>
+              <td class="sub-eng">英語</td>
+              <td class="sub-soc">社會</td>
+              <td class="sub-sci">自然與生活</td>
+              <td class="sub-pe">健康與體育</td>
+              <td class="sub-art">藝術與人文</td>
+            </tr>
+            <tr>
+              <td class="time-col">第四節<br>11:20 - 12:00</td>
+              <td class="sub-soc">社會</td>
+              <td class="sub-it">資訊科技</td>
+              <td class="sub-math">數學</td>
+              <td class="sub-pe">健康與體育</td>
+              <td class="sub-art">藝術與人文</td>
+            </tr>
+            <tr>
+              <td class="time-col">午休時間<br>12:00 - 13:20</td>
+              <td colspan="5" class="sub-break">🍱 營養午餐 & 😴 甜蜜午睡時間</td>
+            </tr>
+            <tr>
+              <td class="time-col">第五節<br>13:30 - 14:10</td>
+              <td class="sub-sci">自然探究</td>
+              <td class="sub-pe">體育活動</td>
+              <td class="sub-break">班會活動</td>
+              <td class="sub-soc">社會</td>
+              <td class="sub-it">創客與編程</td>
+            </tr>
+            <tr>
+              <td class="time-col">第六節<br>14:20 - 15:00</td>
+              <td class="sub-sci">自然探究</td>
+              <td class="sub-art">音樂欣賞</td>
+              <td class="sub-break">綜合活動</td>
+              <td class="sub-math">數學輔導</td>
+              <td class="sub-chi">閱讀寫作</td>
+            </tr>
+            <tr>
+              <td class="time-col">放學輔導<br>15:10 - 16:00</td>
+              <td class="sub-break">大掃除 / 放學</td>
+              <td class="sub-break">社團活動</td>
+              <td class="sub-break">大掃除 / 放學</td>
+              <td class="sub-break">社團活動</td>
+              <td class="sub-break">歡樂週末迎接</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 班級專屬 QR Code 專區 (高亮重點區) -->
+  <section id="qr-section" class="section-py">
+    <div class="container">
+      <div class="qr-spotlight-section">
+        <div class="qr-spotlight-grid">
+          <div class="qr-spotlight-text">
+            <h2>📱 班級即時互聯 • QR Code 專區</h2>
+            <p>
+              為了促進親師即時溝通、分享孩子的學習歷程與課後作業資訊，本班特建立專屬官方行動條碼。手機輕輕一掃，就能輕鬆與班級零距離同步！
+            </p>
+            <div class="qr-steps">
+              <div class="step-box">
+                <div class="step-num">01. 打開相機</div>
+                <div class="step-desc">使用智慧型手機或通訊軟體內建掃描器</div>
+              </div>
+              <div class="step-box">
+                <div class="step-num">02. 對準條碼</div>
+                <div class="step-desc">將相機對準右側的 qrcode.png 圖示</div>
+              </div>
+              <div class="step-box">
+                <div class="step-num">03. 輕鬆連結</div>
+                <div class="step-desc">點擊跳出之連結，隨時隨地交流零時差</div>
+              </div>
+            </div>
+          </div>
+          <div class="qr-spotlight-box">
+            <img src="qrcode.png" alt="後寮國小六年甲班 QR Code" style="cursor: pointer;" onclick="document.getElementById('openQrModalBtn').click();">
+            <div class="caption">後寮國小 六年甲班 專用 QR Code</div>
+            <p style="font-size: 0.78rem; color: #64748b; margin-top: 6px;">點選條碼可檢視大圖</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 班級活動相簿 -->
+  <section id="activities" class="section-py" style="background-color: #f8fafc;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Memories</span>
+        <h2 class="section-title">活動精采相簿</h2>
+        <p class="section-subtitle">每一次揮灑汗水與歡笑的片刻，都是童年最璀璨的寶藏</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <div class="gallery-thumb thumb-grad-1">
+            <span class="gallery-tag-pill">體育競賽</span>
+            <span>🏃‍♂️</span>
+          </div>
+          <div class="gallery-body">
+            <h4>秋季校運會大隊接力</h4>
+            <p>全班齊心協力、奮勇向前！每一棒的傳遞都是默契與信任的展現，榮獲全校高年級組冠軍！</p>
+            <div class="gallery-meta">
+              <span>📅 2026/10/25</span>
+              <span>📸 36 張照片</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <div class="gallery-thumb thumb-grad-2">
+            <span class="gallery-tag-pill">戶外探究</span>
+            <span>🌿</span>
+          </div>
+          <div class="gallery-body">
+            <h4>後寮潮間帶生態探究</h4>
+            <p>實地走訪家鄉海岸，細心觀察螃蟹與海藻生態，體會大自然奧妙並落實環保愛護家鄉。</p>
+            <div class="gallery-meta">
+              <span>📅 2026/10/12</span>
+              <span>📸 48 張照片</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <div class="gallery-thumb thumb-grad-3">
+            <span class="gallery-tag-pill">創客學習</span>
+            <span>🤖</span>
+          </div>
+          <div class="gallery-body">
+            <h4>STEAM 科學創客博覽會</h4>
+            <p>動手組裝智能機器人與環保動力車，大家發揮無限創意，展現小小科學家風采！</p>
+            <div class="gallery-meta">
+              <span>📅 2026/09/28</span>
+              <span>📸 25 張照片</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <div class="gallery-thumb thumb-grad-4">
+            <span class="gallery-tag-pill">藝文展演</span>
+            <span>🎨</span>
+          </div>
+          <div class="gallery-body">
+            <h4>六年甲班畢業紀念展籌備</h4>
+            <p>同學們一起繪製個人特色自畫像與手作陶藝，將六年來的點滴凝結成美麗的藝術篇章。</p>
+            <div class="gallery-meta">
+              <span>📅 2026/09/15</span>
+              <span>📸 52 張照片</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 班級幹部與榮譽榜雙欄 -->
+  <section id="class-info" class="section-py">
+    <div class="container">
+      <div class="double-column">
+        <!-- 班級幹部卡片 -->
+        <div class="officers-card">
+          <h3 class="card-heading">
+            <span>🎖️</span> 班級幹部群 (熱忱為大家服務)
+          </h3>
+          <div class="officer-list">
+            <div class="officer-item">
+              <span style="font-size: 1.5rem;">👑</span>
+              <div>
+                <span class="officer-role">班長</span>
+                <span class="officer-name">陳小宇</span>
+              </div>
+            </div>
+            <div class="officer-item">
+              <span style="font-size: 1.5rem;">⭐</span>
+              <div>
+                <span class="officer-role">副班長</span>
+                <span class="officer-name">林欣怡</span>
+              </div>
+            </div>
+            <div class="officer-item">
+              <span style="font-size: 1.5rem;">📚</span>
+              <div>
+                <span class="officer-role">學藝股長</span>
+                <span class="officer-name">黃俊凱</span>
+              </div>
+            </div>
+            <div class="officer-item">
+              <span style="font-size: 1.5rem;">⚽</span>
+              <div>
+                <span class="officer-role">體育股長</span>
+                <span class="officer-name">張家豪</span>
+              </div>
+            </div>
+            <div class="officer-item">
+              <span style="font-size: 1.5rem;">🧹</span>
+              <div>
+                <span class="officer-role">衛生股長</span>
+                <span class="officer-name">王品涵</span>
+              </div>
+            </div>
+            <div class="officer-item">
+              <span style="font-size: 1.5rem;">🔔</span>
+              <div>
+                <span class="officer-role">風紀股長</span>
+                <span class="officer-name">吳庭瑋</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 榮譽榜卡片 -->
+        <div class="honors-card">
+          <h3 class="card-heading">
+            <span>🏆</span> 六甲榮譽榜 (閃耀之星)
+          </h3>
+          <ul class="honor-list">
+            <li class="honor-item">
+              <div class="honor-badge">🥇</div>
+              <div class="honor-text">
+                <h5>全校運動會高年級大隊接力 第一名</h5>
+                <p>六年甲班全體健兒 發揮團隊精神勇奪桂冠</p>
+              </div>
+            </li>
+            <li class="honor-item">
+              <div class="honor-badge">🥈</div>
+              <div class="honor-text">
+                <h5>縣級語文競賽國語朗讀 優等</h5>
+                <p>獲獎同學：林欣怡 指導老師用心指導</p>
+              </div>
+            </li>
+            <li class="honor-item">
+              <div class="honor-badge">🥉</div>
+              <div class="honor-text">
+                <h5>校園環保整潔競賽 連續四週特優班級</h5>
+                <p>全班認真維護校園環境，維持第一名榮譽旗</p>
+              </div>
+            </li>
+            <li class="honor-item">
+              <div class="honor-badge">🌟</div>
+              <div class="honor-text">
+                <h5>全校閱讀小達人金質獎</h5>
+                <p>本班累計借閱圖書突破 1,200 本，獲頒全校閱讀標竿班</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁尾區 -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>🏫 後寮國小 六年甲班</h3>
+          <p>
+            澎湖縣白沙鄉後寮國民小學 六年甲班 官方班級網頁<br>
+            以愛心陪伴、以智慧啟發，營造安全、溫馨、主動學習的校園環境。
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>快速連結</h4>
+          <ul class="footer-links">
+            <li><a href="#home">回到首頁</a></li>
+            <li><a href="#announcements">最新公告</a></li>
+            <li><a href="#schedule">本週課表</a></li>
+            <li><a href="#activities">活動相簿</a></li>
+            <li><a href="#qr-section">班級 QR Code</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>常用學習資源</h4>
+          <ul class="footer-links">
+            <li><a href="https://dict.revised.moe.edu.tw/" target="_blank" rel="noopener">教育部重編國語辭典</a></li>
+            <li><a href="https://adl.edu.tw/" target="_blank" rel="noopener">教育部因材網平台</a></li>
+            <li><a href="https://www.coolenglish.edu.tw/" target="_blank" rel="noopener">Cool English 英語線上</a></li>
+            <li><a href="https://www.pagamo.org/" target="_blank" rel="noopener">PaGamO 遊戲學習平台</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 後寮國小 六年甲班 • 本班級網頁專供親師生教學與交流使用 • 網頁所有影像與資料均受保護</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 回到頂部按鈕 -->
+  <button class="back-to-top" id="backToTop" aria-label="回到頂端">↑</button>
+
+  <!-- QR Code 放大視窗 (Modal) -->
+  <div class="modal-overlay" id="qrModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeQrModalBtn" aria-label="關閉視窗">&times;</button>
+      <h3 style="color: var(--primary-dark); font-size: 1.25rem; font-weight: 800;">後寮國小 六年甲班</h3>
+      <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">班級專屬 QR Code</p>
+      <img src="qrcode.png" alt="後寮國小 六年甲班 QR Code 放大圖" class="modal-qr-img">
+      <p style="font-size: 0.85rem; color: #4a5568; margin-bottom: 16px;">請使用手機相機掃描以加入班群或查看最新消息</p>
+      <a href="qrcode.png" download="後寮國小六年甲班-QRcode.png" class="btn btn-primary" style="font-size: 0.88rem; padding: 10px 20px; width: 100%; justify-content: center;">
+        📥 下載 QR Code 圖片
+      </a>
+    </div>
+  </div>
+
+  <!-- 互動腳本 JavaScript -->
+  <script>
+    // 手機版選單切換
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    if (mobileMenuBtn && navLinks) {
+      mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-open');
+      });
+      // 點擊連結時自動收合
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('mobile-open');
+        });
+      });
+    }
+
+    // 回到頂部按鈕行為
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // QR Code Modal 放大檢視
+    const qrModal = document.getElementById('qrModal');
+    const openQrModalBtn = document.getElementById('openQrModalBtn');
+    const closeQrModalBtn = document.getElementById('closeQrModalBtn');
+    const qrWrapper = document.getElementById('qrWrapper');
+
+    function openModal() {
+      qrModal.classList.add('active');
+    }
+    function closeModal() {
+      qrModal.classList.remove('active');
+    }
+
+    if (openQrModalBtn) openQrModalBtn.addEventListener('click', openModal);
+    if (qrWrapper) qrWrapper.addEventListener('click', openModal);
+    if (closeQrModalBtn) closeQrModalBtn.addEventListener('click', closeModal);
+
+    // 點擊背景關閉 Modal
+    qrModal.addEventListener('click', (e) => {
+      if (e.target === qrModal) {
+        closeModal();
+      }
+    });
+
+    // ESC 鍵關閉 Modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && qrModal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+
+    // 動態計算畢業倒數天數 (以 2027 年 6 月 18 日小學畢業典禮為例)
+    function updateGraduationCountdown() {
+      const graduationDate = new Date('2027-06-18T09:00:00');
+      const now = new Date();
+      const diffTime = graduationDate - now;
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      const countdownEl = document.getElementById('countdownDays');
+      if (countdownEl && diffDays > 0) {
+        countdownEl.textContent = diffDays;
+      }
+    }
+    updateGraduationCountdown();
+  </script>
+</body>
+</html>
